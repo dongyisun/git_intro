@@ -1,14 +1,15 @@
+import re
+
+
 def check_pwd(pwd):
-    accepted_symbols = ["~", "`", "!", "@", "#", "$", "%", "^",
-                        "&", "*", "(", ")", "_", "+", "-", "="]
     if len(pwd) < 8 or len(pwd) > 20:
         return False
-    elif not any(map(str.islower, pwd)):
+    elif not re.search("[a-z]", pwd):
         return False
-    elif not any(map(str.isupper, pwd)):
+    elif not re.search("[A-Z]", pwd):
         return False
-    elif not any(map(str.isdigit, pwd)):
+    elif not re.search("[0-9]", pwd):
         return False
-    elif not any(symbol in pwd for symbol in accepted_symbols):
+    elif not re.search("~`!@#$%^&*()_+-=", pwd):
         return False
-    return True
+    return True 
