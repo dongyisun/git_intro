@@ -19,7 +19,6 @@ class TestCase(TestCase):
 
     def test_Special_Character(self):
         self.assertFalse(check_pwd("nN825Qn9QQo2rQp1H"))
-        
 
 if __name__ == '__main__':
     unittest.main()
